@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<!-- header-content-->
+<div class="main-content">
+  <div class="header-content">
+    <div class="person-detail-text">PERSON DETAILS</div>
+    <div>
+      <a routerLink="/add-user" class="add-button">
+        <img src="../assets/icons/add-24px.svg" alt="">Add Person
+      </a>
+    </div>
+  </div>
+
+  <!-- table-heading-->
+  <div class="table-main">
+    <table id="table-display" class="table">
+      <tr>
+        <th>NAME</th>
+        <th>ADDRESS</th>
+        <th>CITY</th>
+        <th>STATE</th>
+        <th>ZIP CODE</th>
+        <th>PHONE NUMBER</th>
+        <th>ACTIONS</th>
+        <th></th>
+      </tr>
+
+      <!-- table-content-->
+      <tr *ngFor="let person of personDetails">
+        <td>{{person.fullName}}</td>
+        <td>{{person.address}}</td>
+        <td>{{person.city}}</td>
+        <td>{{person.state}}</td>
+        <td>{{person.zipNo}}</td>
+        <td>{{person.phoneNumber}}</td>
+        <td>
+          <img id={{person.person_id}} src="../assets/icons/delete-black-18dp.svg" alt="delete" (click)="remove(person.person_id)">
+          &nbsp;
+          <img id={{person.person_id}} src="../assets/icons/create-black-18dp.svg" alt="edit">
+        </td>
+      </tr>
+    </table>
+
+  </div>
+</div>
